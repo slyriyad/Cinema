@@ -7,6 +7,15 @@
 </head>
 <body>
     <div id="wrapper">
+        <nav>
+            <ul>
+                <li><a href="index.php?action=listFilms">Films</a></li>
+                <li><a href="index.php?action=listActeurs">Acteurs</a></li>
+                <li><a href="index.php?action=listRealisateurs">Réalisateurs</a></li>
+                <li><a href="index.php?action=listRoles">Rôles</a></li>
+                <li><a href="index.php?action=listGenres">Genres</a></li>
+            </ul>
+        </nav>
         <main>
             <div id="contenu">
                 <h1 class="uk-heading-divider">PDO CINEMA</h1>

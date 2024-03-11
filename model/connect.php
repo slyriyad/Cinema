@@ -11,8 +11,10 @@ abstract class Connect {
     public static function seConnecter() {
         try {
             return new \PDO("mysql:host=".self::HOST.";dbname=".self::DB.";charset=utf8", self::USER,self::PASS);
+            $mysqlClient->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (\PDOException $ex) {
             return $ex->getMessage();
         }
     }
 }
+?>
