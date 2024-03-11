@@ -1,30 +1,35 @@
 <?php
-use Controller\CinemaController;
+use Controller\ActeurController;
+use Controller\RoleController;
+use Controller\RealisateurController;
+use Controller\GenreController;
+use Controller\FilmController;
+use Controller\HomeController;
 
 spl_autoload_register(function($class_name) {
     include $class_name . '.php';
 });
 
-$ctrlCinema = new CinemaController();
-$ctrlCinema = new CinemaController();
-$ctrlCinema = new CinemaController();
-$ctrlCinema = new CinemaController();
-$ctrlCinema = new CinemaController();
+$ctrlActeur = new ActeurController();
+$ctrlRole = new RoleController();
+$ctrlRealisateur = new RealisateurController();
+$ctrlGenre = new GenreController();
+$ctrlFilm = new FilmController();
 
 $id = (isset($_GET["id"])) ? $_GET["id"] : null;
 
 if(isset($_GET["action"])) {
     switch ($_GET["action"]) {
 
-        case "listFilms" : $ctrlCinema->listFilms(); break;
-        case "detailFilm" : $ctrlCinema->detailFilm($id); break;
-        case "listActeurs" : $ctrlCinema->listActeurs(); break;
-        case "detailActeur" : $ctrlCinema->detailActeur($id); break;
-        case "listRealisateurs" : $ctrlCinema->listRealisateurs(); break;
-        case "detailRealisateur" : $ctrlCinema->detailRealisateur($id); break;
-        case "listRoles" : $ctrlCinema->listRoles(); break;
-        case "detailRole" : $ctrlCinema->detailRole($id); break;
-        case "listGenres" : $ctrlCinema->listGenres(); break;
-        case "detailGenre" : $ctrlCinema->detailGenre($id); break;
+        case "listFilms" : $ctrlFilm->listFilms(); break;
+        case "detailFilm" : $ctrlFilm->detailFilm($id); break;
+        case "listActeurs" : $ctrlActeur->listActeurs(); break;
+        case "detailActeur" : $ctrlActeur->detailActeur($id); break;
+        case "listRealisateurs" : $ctrlRealisateur->listRealisateurs(); break;
+        case "detailRealisateur" : $ctrlRealisateur->detailRealisateur($id); break;
+        case "listRoles" : $ctrlRole->listRoles(); break;
+        case "detailRole" : $ctrlRole->detailRole($id); break;
+        case "listGenres" : $ctrlGenre->listGenres(); break;
+        case "detailGenre" : $ctrlGenre->detailGenre($id); break;
     }
 }
