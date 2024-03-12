@@ -15,6 +15,7 @@ $ctrlRole = new RoleController();
 $ctrlRealisateur = new RealisateurController();
 $ctrlGenre = new GenreController();
 $ctrlFilm = new FilmController();
+$ctrlHome = new HomeController();
 
 $id = (isset($_GET["id"])) ? $_GET["id"] : null;
 
@@ -31,5 +32,6 @@ if(isset($_GET["action"])) {
         case "detailRole" : $ctrlRole->detailRole($id); break;
         case "listGenres" : $ctrlGenre->listGenres(); break;
         case "detailGenre" : $ctrlGenre->detailGenre($id); break;
+        case "home" : $ctrlHome->home(); break;
     }
 }
