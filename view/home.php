@@ -55,7 +55,6 @@
                 <img src="public/img/al pacino.jpg" alt="">
                 <img src="public/img/al pacino.jpg" alt="">
                 <img src="public/img/al pacino.jpg" alt="">
-                <img src="public/img/al pacino.jpg" alt="">
             </div>
         </div>
         <div class="producteur">
@@ -71,6 +70,7 @@
         
     </div>
 </div>
+<script  src="public/js/home.js"></script>
 
 
 <?php

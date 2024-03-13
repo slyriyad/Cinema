@@ -48,5 +48,6 @@
             <!-- <img class="footerImg" src="public/img/footer.png" alt=""> -->
         </footer>
     </div>
+    
 </body>
 </html>
