@@ -26,7 +26,7 @@ class HomeController {
         SELECT * 
         FROM film 
         ORDER BY note DESC 
-        LIMIT 3
+        LIMIT 5
         ");
         
 
@@ -34,6 +34,7 @@ class HomeController {
         SELECT * 
         FROM acteur 
         INNER JOIN personne ON acteur.Id_personne = personne.Id_personne
+        LIMIT 3
         ");
         
 
@@ -41,6 +42,7 @@ class HomeController {
         SELECT * 
         FROM realisateur 
         INNER JOIN personne ON realisateur.Id_personne = personne.Id_personne
+        LIMIT 3
         ");
         
         require "view/home.php";
