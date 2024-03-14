@@ -13,7 +13,7 @@
 <body>
     <div id="wrapper">
         <header>
-            <img class="logo" src="public/img/logo_cinéma.png" alt="">
+        <a class="logo1" href="index.php?action=home"><img class="logo" src="public/img/logo_cinéma.png" alt=""></a>
             <form action="/action_page.php">
                 <input class="searchBar" type="text" placeholder="Search.." name="search">
                 <button class="searchBtn" type="submit"><i class="fa fa-search"></i></button>
@@ -45,7 +45,7 @@
                     <i class="fa-brands fa-instagram"></i>
                 </div>
             </div>
-            <!-- <img class="footerImg" src="public/img/footer.png" alt=""> -->
+            <!-- <img class="footerImg" src="public/img/footer.jpeg" alt=""> -->
         </footer>
     </div>
     

@@ -6,7 +6,7 @@ class HomeController {
     
     public function home() {
         $pdo = Connect::seConnecter();
-        $requeteDernierFilm = $pdo->prepare("
+        $requeteDernierFilm = $pdo->query("
         SELECT * 
         FROM film 
         ORDER BY anneeSortie DESC
@@ -14,7 +14,7 @@ class HomeController {
         ");
         
 
-        $requeteAncienFilm = $pdo->prepare("
+        $requeteAncienFilm = $pdo->query("
         SELECT * 
         FROM film 
         ORDER BY anneeSortie ASC
@@ -22,7 +22,7 @@ class HomeController {
         "); // renvoie potentiellement plusieurs lignes
         
 
-        $requeteFilmPopulaire = $pdo->prepare("
+        $requeteFilmPopulaire = $pdo->query("
         SELECT * 
         FROM film 
         ORDER BY note DESC 
@@ -30,7 +30,7 @@ class HomeController {
         ");
         
 
-        $requeteActeur = $pdo->prepare("
+        $requeteActeur = $pdo->query("
         SELECT * 
         FROM acteur 
         INNER JOIN personne ON acteur.Id_personne = personne.Id_personne
@@ -38,7 +38,7 @@ class HomeController {
         ");
         
 
-        $requeteRealisateur = $pdo->prepare("
+        $requeteRealisateur = $pdo->query("
         SELECT * 
         FROM realisateur 
         INNER JOIN personne ON realisateur.Id_personne = personne.Id_personne
