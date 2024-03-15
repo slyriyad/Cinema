@@ -35,4 +35,22 @@ class GenreController {
         $requeteFilm->execute(["id"=>$id]);
         require "view/detailgenre.php";
     }
+
+    // detail les genre
+    public function formGenre() {
+        if(isset($_POST['bouton'])){
+
+            $nom = $_POST['nom'];
+
+            $pdo = Connect::seConnecter();
+            $requeteformGenre = $pdo->prepare("
+            INSERT INTO genre(nom)
+            VALUES (?)
+            ");
+            $requeteformGenre -> execute([$nom]);
+
+        
+        }
+        require "view/formGenre.php";
+    }
 }

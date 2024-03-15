@@ -32,6 +32,7 @@ if(isset($_GET["action"])) {
         case "detailRole" : $ctrlRole->detailRole($id); break;
         case "listGenres" : $ctrlGenre->listGenres(); break;
         case "detailGenre" : $ctrlGenre->detailGenre($id); break;
+        case "formGenre" : $ctrlGenre->formGenre(); break;
         case "home" : $ctrlHome->home(); break;
     }
 }
