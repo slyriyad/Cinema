@@ -38,4 +38,32 @@ class RealisateurController {
         $requeteFilm->execute(["id"=>$id]);
         require "view/detailRealisateur.php";
     }
+
+
+     // ajout les realisateur
+     public function formRealisateur() {
+        if(isset($_POST['bouton'])){
+
+            $nom = $_POST['nom'];
+            $prenom = $_POST['prenom'];
+            $sexe = $_POST['sexe'];
+            $dateNaissance = $_POST['dateNaissance'];
+            $photo = $_POST['photo'];
+
+            $pdo = Connect::seConnecter();
+            $requeteformPersonne = $pdo->prepare("
+            INSERT INTO personne(nom,prenom,sexe,dateNaissance,photo)
+            VALUES (?,?,?,?,?)
+            ");
+            $requeteformPersonne->execute([$nom, $prenom, $sexe, $dateNaissance, $photo]);
+            
+            $idPersonne = $pdo->lastInsertId();
+            $requeteformRealisateur = $pdo->prepare("
+            INSERT INTO Realisateur(Id_personne)
+            VALUES (?)
+            ");
+            $requeteformRealisateur -> execute([$idPersonne]);
+        }
+        require "view/formRealisateur.php";
+    }
 }

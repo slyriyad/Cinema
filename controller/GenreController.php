@@ -36,7 +36,7 @@ class GenreController {
         require "view/detailgenre.php";
     }
 
-    // detail les genre
+    // ajout les genre
     public function formGenre() {
         if(isset($_POST['bouton'])){
 

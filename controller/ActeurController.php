@@ -42,4 +42,32 @@ class ActeurController {
         require "view/detailActeur.php";
     }
 
+
+    // ajout les acteur
+    public function formActeur() {
+        if(isset($_POST['bouton'])){
+
+            $nom = $_POST['nom'];
+            $prenom = $_POST['prenom'];
+            $sexe = $_POST['sexe'];
+            $dateNaissance = $_POST['dateNaissance'];
+            $photo = $_POST['photo'];
+
+            $pdo = Connect::seConnecter();
+            $requeteformPersonne = $pdo->prepare("
+            INSERT INTO personne(nom,prenom,sexe,dateNaissance,photo)
+            VALUES (?,?,?,?,?)
+            ");
+            $requeteformPersonne->execute([$nom, $prenom, $sexe, $dateNaissance, $photo]);
+            
+            $idPersonne = $pdo->lastInsertId();
+            $requeteformActeur = $pdo->prepare("
+            INSERT INTO acteur(Id_personne)
+            VALUES (?)
+            ");
+            $requeteformActeur -> execute([$idPersonne]);
+        }
+        require "view/formActeur.php";
+    }
+
 }

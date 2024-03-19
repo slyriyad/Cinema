@@ -39,5 +39,24 @@ class RoleController {
         require "view/detailRole.php";
     }
 
+
+    // ajout les Role
+    public function formRole() {
+        if(isset($_POST['bouton'])){
+
+            $nom = $_POST['nom'];
+
+            $pdo = Connect::seConnecter();
+            $requeteformRole = $pdo->prepare("
+            INSERT INTO Role(nom)
+            VALUES (?)
+            ");
+            $requeteformRole -> execute([$nom]);
+
+        
+        }
+        require "view/formRole.php";
+    }
+
 }
     

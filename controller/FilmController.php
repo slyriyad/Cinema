@@ -40,4 +40,41 @@ class FilmController {
         $requeteCasting->execute(["id"=>$id]);
         require "view/detailFilm.php";
     }
+
+
+    // ajout les film
+    public function formFilm() {
+        if(isset($_POST['bouton'])){
+            $pdo = Connect::seConnecter();
+            $requeteFilm = $pdo->query("
+            SELECT *
+            FROM film
+            INNER JOIN realisateur ON realisateur.Id_realisateur = film.Id_realisateur
+            INNER JOIN personne ON personne.id_personne = realisateur.id_personne
+            ");
+
+
+            $titre = $_POST['titre'];
+            $anneeSortie = $_POST['anneeSortie'];
+            $duree = $_POST['duree'];
+            $resume = $_POST['resume'];
+            $note = $_POST['note'];
+            $affiche = $_POST['affiche'];
+
+            $pdo = Connect::seConnecter();
+            $requeteformPersonne = $pdo->prepare("
+            INSERT INTO personne(titre,anneeSortie,duree,resume,note,affiche)
+            VALUES (?,?,?,?,?)
+            ");
+            $requeteformPersonne->execute([$titre, $anneeSortie, $duree, $resume, $note,$affiche]);
+            
+            $idPersonne = $pdo->lastInsertId();
+            $requeteformRealisateur = $pdo->prepare("
+            INSERT INTO Realisateur(Id_personne)
+            VALUES (?)
+            ");
+            $requeteformRealisateur -> execute([$idPersonne]);
+        }
+        require "view/formFilm.php";
+    }
 }

@@ -1,5 +1,5 @@
 <?php ob_start(); ?>
-<h1>Ajout Genre</h1>
+<h1>Ajout Role</h1>
 
 <form action="" method="post">
     <label for="name">Nom:<br></label>
@@ -8,8 +8,8 @@
 </form>
 
 <?php
-$titre = "Ajout de genre";
-$titre_secondaire = "Ajout de genre";
+$titre = "Ajout de Role";
+$titre_secondaire = "Ajout de Role";
 $contenu = ob_get_clean();
 require "view/template.php";
 ?>
