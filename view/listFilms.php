@@ -1,17 +1,13 @@
 <?php ob_start(); ?>
-
+<link rel="stylesheet" type="text/css" href="public/css/listFilms.css">
 <p>Il y a <?= $requete->rowcount() ?> acteurs </p>
 
 <table>
-    <thead>
-        <tr>
-            <th>TITRE</th>
-            <th>ANNEE SORTIE</th>
-        </tr>
-    </thead>
+
     <tbody>
         <?php foreach($requete->fetchall() as $film) { ?>
             <tr>
+                <td><a href="index.php?action=detailFilm&id=<?= $film["id_film"] ?>"></a><img src="<?= $film["affiche"]?>" alt=""></td>
                 <td><a href="index.php?action=detailFilm&id=<?= $film["id_film"] ?>"><?= $film["titre"] ?></a></td>
                 <td><?= $film["anneeSortie"] ?></td>
             </tr>

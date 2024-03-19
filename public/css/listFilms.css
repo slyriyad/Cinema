@@ -1,0 +1,20 @@
+table{
+    display: flex;
+    flex-direction: row;
+}
+
+img {
+    width: 100%;
+    height: 100%; /* Redimensionne l'image pour remplir complètement la cellule */
+   object-fit: cover;
+}
+
+td, th {
+    width: 250px; /* Largeur des cellules de tableau */
+    height: 300px; /* Hauteur des cellules de tableau */
+}
+
+tr{
+    display: flex;
+    flex-direction: column;
+}
