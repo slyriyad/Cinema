@@ -44,14 +44,23 @@ class FilmController {
 
     // ajout les film
     public function formFilm() {
+        $pdo = Connect::seConnecter();
+        $requeteRealisateur = $pdo->query("
+        SELECT * 
+        FROM realisateur 
+        INNER JOIN personne ON realisateur.Id_personne = personne.Id_personne
+        ");
+
+
+        $requeteActeur = $pdo->query("
+        SELECT * 
+        FROM acteur 
+        INNER JOIN personne ON acteur.Id_personne = personne.Id_personne
+        ");
+        
         if(isset($_POST['bouton'])){
             $pdo = Connect::seConnecter();
-            $requeteFilm = $pdo->query("
-            SELECT *
-            FROM film
-            INNER JOIN realisateur ON realisateur.Id_realisateur = film.Id_realisateur
-            INNER JOIN personne ON personne.id_personne = realisateur.id_personne
-            ");
+
 
 
             $titre = $_POST['titre'];
@@ -60,20 +69,14 @@ class FilmController {
             $resume = $_POST['resume'];
             $note = $_POST['note'];
             $affiche = $_POST['affiche'];
-
-            $pdo = Connect::seConnecter();
-            $requeteformPersonne = $pdo->prepare("
-            INSERT INTO personne(titre,anneeSortie,duree,resume,note,affiche)
-            VALUES (?,?,?,?,?)
-            ");
-            $requeteformPersonne->execute([$titre, $anneeSortie, $duree, $resume, $note,$affiche]);
+            $realisateur = $_POST['realisateur'];
             
-            $idPersonne = $pdo->lastInsertId();
-            $requeteformRealisateur = $pdo->prepare("
-            INSERT INTO Realisateur(Id_personne)
-            VALUES (?)
+            $requeteformFilm = $pdo->prepare("
+            INSERT INTO film(titre,anneeSortie,duree,resume,note,affiche,Id_realisateur)
+            VALUES (?,?,?,?,?,?,?)
             ");
-            $requeteformRealisateur -> execute([$idPersonne]);
+            $requeteformFilm->execute([$titre, $anneeSortie, $duree, $resume, $note,$affiche,$realisateur]);
+            
         }
         require "view/formFilm.php";
     }

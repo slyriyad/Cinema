@@ -1,25 +1,34 @@
 <?php ob_start(); ?>
+<?php $realisateurs = $requeteRealisateur->fetchAll();?>
+<?php $acteurs = $requeteActeur->fetchAll();?>
 <h1>Ajout Film</h1>
 
+
 <form action="" method="post">
-    <label for="name">titre:<br></label>
+    <label for="titre">titre:<br></label>
     <input type="text" placeholder="titre" name="titre"><br>
-    <label for="name">anneeSortie:<br></label>
+    <label for="anneeSortie">anneeSortie:<br></label>
     <input type="text" placeholder="anneeSortie" name="anneeSortie"><br>
-    <label for="name">duree(en minutes):<br></label>
+    <label for="duree">duree(en minutes):<br></label>
     <input type="text" placeholder="duree" name="duree"><br>
-    <label for="date">resume:<br></label>
-    <input type="date" placeholder="resume" name="resume"><br>
-    <label for="name">note:<br></label>
+    <label for="resume">resume:<br></label>
+    <input type="text" placeholder="resume" name="resume"><br>
+    <label for="note">note:<br></label>
     <input type="text" placeholder="note" name="note"><br>
-    <label for="name">affiche:<br></label>
+    <label for="affiche">affiche:<br></label>
     <input type="text" placeholder="affiche" name="affiche"><br>
-    <label for="pet-select">Choose a pet:</label>
-    <select name="realisateur" multiple>
-        <?php foreach($requeteFilm->fetchall() as $film) { ?>
-        <option value="<?= $film['Id_realisateur'] ?>"><?=$film['prenom']?></option>
+    <select name="realisateur">
+        <?php foreach ($realisateurs as $realisateur) { ?>
+            <option value="<?= $realisateur['Id_realisateur'] ?>"><?= $realisateur['prenom']." ".$realisateur['nom'] ?></option>
         <?php } ?>
-    </select>
+    </select><br>
+    <!-- <div>
+        <div>
+        foreach ($acteurs as $acteur) { 
+            <label for="< $acteur['Id_acteur'] ?>"><input type="checkbox" id="< $acteur['Id_acteur'] ?>" value="<= $acteur['Id_acteur'] ?>"><= $acteur['prenom']." ".$acteur['nom'] ?></label>
+        } 
+        </div>
+    </div> -->
     <input type="submit" value="ajouter" class="bouton" name="bouton">
 </form>
 
