@@ -52,10 +52,9 @@ class FilmController {
         ");
 
 
-        $requeteActeur = $pdo->query("
-        SELECT * 
-        FROM acteur 
-        INNER JOIN personne ON acteur.Id_personne = personne.Id_personne
+        $requeteGenre = $pdo->query("
+        SELECT *
+        FROM genre
         ");
         
         if(isset($_POST['bouton'])){
@@ -69,13 +68,23 @@ class FilmController {
             $resume = $_POST['resume'];
             $note = $_POST['note'];
             $affiche = $_POST['affiche'];
-            $realisateur = $_POST['realisateur'];
+            
             
             $requeteformFilm = $pdo->prepare("
-            INSERT INTO film(titre,anneeSortie,duree,resume,note,affiche,Id_realisateur)
-            VALUES (?,?,?,?,?,?,?)
+            INSERT INTO film(titre,anneeSortie,duree,resume,note,affiche)
+            VALUES (?,?,?,?,?,?)
             ");
-            $requeteformFilm->execute([$titre, $anneeSortie, $duree, $resume, $note,$affiche,$realisateur]);
+            $requeteformFilm->execute([$titre, $anneeSortie, $duree, $resume, $note,$affiche]);
+            
+            $idFilm = $pdo->lastInsertId();
+            $genres = isset($_POST['genres']) ? $_POST['genres'] : [];
+            $requeteformGenre = $pdo->prepare("
+            INSERT INTO posseder(id_film,id_genre)
+            VALUES (?,?)
+            ");
+            foreach($genres as $genre) {
+                $requeteformGenre->execute([$idFilm, $genre]);
+            }
             
         }
         require "view/formFilm.php";

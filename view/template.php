@@ -19,14 +19,24 @@
                 <button class="searchBtn" type="submit"><i class="fa fa-search"></i></button>
             </form>
             <nav>
-                <ul>
-                    <li><a href="index.php?action=listFilms">Films</a></li>
-                    <li><a href="index.php?action=listActeurs">Acteurs</a></li>
-                    <li><a href="index.php?action=listRealisateurs">Réalisateurs</a></li>
-                    <li><a href="index.php?action=listRoles">Rôles</a></li>
-                    <li><a href="index.php?action=listGenres">Genres</a></li>
-                </ul>
-            </nav>
+    <ul>
+        <li><a href="index.php?action=listFilms">Films</a></li>
+        <li><a href="index.php?action=listActeurs">Acteurs</a></li>
+        <li><a href="index.php?action=listRealisateurs">Réalisateurs</a></li>
+        <li><a href="index.php?action=listRoles">Rôles</a></li>
+        <li><a href="index.php?action=listGenres">Genres</a></li>
+        <li>
+            <a href="#">Ajout</a>
+            <ul>
+                <li><a href="index.php?action=formFilm">Ajouter Film</a></li>
+                <li><a href="index.php?action=formActeur">Ajouter Acteur</a></li>
+                <li><a href="index.php?action=formRealisateur">Ajouter Réalisateur</a></li>
+                <li><a href="index.php?action=formRole">Ajouter Rôle</a></li>
+                <li><a href="index.php?action=formGenre">Ajouter Genre</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
         </header>
         <main>
             <div id="contenu">

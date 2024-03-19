@@ -58,25 +58,58 @@ header a {
 }
 
 
-header ul {
+
+
+
+nav ul {
     list-style-type: none;
-   /*: Supprime les puces de la liste.*/
-    display: flex;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
 }
 
-
-header li {
-    display: table-cell;
+nav ul li {
+    display: inline-block;
+    position: relative; /* Ajout de cette ligne */
 }
 
-header a {
+nav ul li a {
     display: block;
     color: white;
-    font-size: medium;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
+
+nav ul li:hover {
+    background-color: #555;
+}
+
+nav ul li ul {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    width: 100%; /* Ajout de cette ligne */
+    left: 0; /* Ajout de cette ligne */
+    top: 100%; /* Ajout de cette ligne */
+}
+
+nav ul li:hover ul {
+    display: block;
+}
+
+nav ul li ul li {
+    display: block;
+}
+
+nav ul li ul li a {
+    color: white;
+}
+
+nav ul li ul li:hover {
+    background-color: #555;
+}
+
 
 .logo1{
 padding: 0%;
