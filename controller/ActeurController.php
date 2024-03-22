@@ -10,9 +10,22 @@ class ActeurController {
         SELECT id_acteur, personne.sexe,nom, personne.prenom, DATE_FORMAT(personne.dateNaissance, '%d/%m/%Y') AS dateNaissance
         FROM acteur
         INNER JOIN personne ON personne.id_personne = acteur.Id_personne
+        WHERE deleted = 0
         ORDER BY nom ASC
         ");
 
+
+        if (isset($_POST['sup'])) {
+            $pdo = Connect::seConnecter();
+            $acteur = $_POST['acteur'];
+            $requeteformActeur = $pdo->prepare("
+                UPDATE acteur
+                SET deleted = TRUE
+                WHERE Id_acteur = ?
+            ");
+            $requeteformActeur->execute([$acteur]);
+            header("location:index.php?action=listActeurs");
+        }
         require "view/listActeurs.php";
     }
 

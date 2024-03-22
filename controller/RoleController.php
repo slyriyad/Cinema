@@ -10,8 +10,21 @@ class RoleController {
         $requete = $pdo->query("
         SELECT *
         FROM role
+        WHERE deleted = 0
         ORDER BY nom ASC");
 
+
+        if (isset($_POST['sup'])) {
+            $pdo = Connect::seConnecter();
+            $role = $_POST['role'];
+            $requeteformRole = $pdo->prepare("
+                UPDATE role
+                SET deleted = TRUE
+                WHERE id_role = ?
+            ");
+            header("location:index.php?action=listRoles");
+            $requeteformRole->execute([$role]);
+        }
         require "view/listRoles.php";
     }
 

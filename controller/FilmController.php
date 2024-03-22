@@ -15,13 +15,13 @@ class FilmController {
 
         if (isset($_POST['sup'])) {
             $pdo = Connect::seConnecter();
-            $film = $_POST['film'];
+            $genre = $_POST['film'];
             $requeteformFilm = $pdo->prepare("
                 UPDATE film
                 SET deleted = TRUE
                 WHERE id_film = ?
             ");
-            $requeteformFilm->execute([$film]);
+            $requeteformFilm->execute([$genre]);
         }
         require "view/listFilms.php";
     }

@@ -10,9 +10,22 @@ class RealisateurController {
         SELECT *,DATE_FORMAT(personne.dateNaissance, '%d/%m/%Y') AS dateNaissance
         FROM realisateur
         INNER JOIN personne ON personne.id_personne = realisateur.Id_personne
+        WHERE deleted = 0
         ORDER BY nom ASC
         ");
 
+
+        if (isset($_POST['sup'])) {
+            $pdo = Connect::seConnecter();
+            $real = $_POST['realisateur'];
+            $requeteformReal = $pdo->prepare("
+                UPDATE realisateur
+                SET deleted = TRUE
+                WHERE Id_realisateur = ?
+            ");
+            $requeteformReal->execute([$real]);
+            header("location:index.php?action=listRealisateurs");
+        }
         require "view/listRealisateurs.php";
     }
 

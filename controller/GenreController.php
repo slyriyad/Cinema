@@ -9,8 +9,20 @@ class GenreController {
         $requete = $pdo->query("
         SELECT *
         FROM genre
+        WHERE deleted = 0
         ORDER BY nom");
-
+        
+        if (isset($_POST['sup'])) {
+            $pdo = Connect::seConnecter();
+            $film = $_POST['genre'];
+            $requeteformGenre = $pdo->prepare("
+                UPDATE genre
+                SET deleted = TRUE
+                WHERE id_genre = ?
+            ");
+            $requeteformGenre->execute([$film]);
+            header("location:index.php?action=listGenres");
+        }
         require "view/listGenres.php";
     }
 
@@ -33,7 +45,7 @@ class GenreController {
         ORDER BY anneeSortie DESC
         "); // renvoie potentiellement plusieurs lignes
         $requeteFilm->execute(["id"=>$id]);
-        require "view/detailgenre.php";
+        require "index.php?action=detailgenre.php";
     }
 
     // ajout les genre
