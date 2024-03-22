@@ -71,5 +71,37 @@ class RoleController {
         require "view/formRole.php";
     }
 
+
+
+
+
+
+    public function modifRole($id) {
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->prepare("
+        SELECT *
+        FROM role
+        WHERE Role.id_role = :id");
+        $requete->execute(["id"=>$id]);
+
+        if(isset($_POST['bouton'])){
+
+            $nom = $_POST['nom'];
+
+            $pdo = Connect::seConnecter();
+            $requeteformRole = $pdo->prepare("
+            UPDATE role
+            SET nom = ?
+            WHERE Id_role = ?
+            ");
+            header("location:index.php?action=modifRole&id=$id");
+            $requeteformRole -> execute([$nom,$id]);
+
+        
+        }
+        require "view/modifRole.php";
+        
+        }
+
 }
     

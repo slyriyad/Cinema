@@ -79,4 +79,45 @@ class RealisateurController {
         }
         require "view/formRealisateur.php";
     }
+
+
+
+
+
+    public function modifRealisateur($id) {
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->prepare("
+        SELECT *, DATE_FORMAT(personne.dateNaissance, '%Y-%m-%d') AS dateNaissance
+        FROM realisateur
+        INNER JOIN personne ON personne.id_personne = realisateur.Id_personne
+        WHERE realisateur.id_realisateur = :id");
+        $requete->execute(["id"=>$id]);
+
+        if(isset($_POST['bouton'])){
+
+            $nom = $_POST['nom'];
+            $prenom = $_POST['prenom'];
+            $sexe = $_POST['sexe'];
+            $dateNaissance = $_POST['dateNaissance'];
+            $photo = $_POST['photo'];
+
+            $pdo = Connect::seConnecter();
+            $requeteformRealisateur = $pdo->prepare("
+            UPDATE personne
+            INNER JOIN realisateur ON personne.id_personne = realisateur.Id_personne 
+            SET nom = ?,
+            prenom = ?,
+            sexe = ?,
+            dateNaissance = ?,
+            photo = ?
+            WHERE id_realisateur = ?
+            ");
+            $requeteformRealisateur -> execute([$nom,$prenom,$sexe,$dateNaissance,$photo,$id]);
+            header("location:index.php?action=modifRealisateur&id=$id");
+
+        
+        }
+        require "view/modifRealisateur.php";
+        
+        }
 }

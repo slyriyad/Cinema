@@ -12,10 +12,15 @@
         <?php foreach($requete->fetchall() as $role) { ?>
             <tr>
                 <td><a href="index.php?action=detailRole&id=<?= $role["Id_role"] ?>"><?= $role["nom"] ?></td>
-                <td><form method="post">
+                <td>
+                    <form method="post">
                         <input type="hidden" name="role" value="<?= $role["Id_role"] ?>">
                         <button type="submit" name="sup">supprimer</button>
-                    </form></td>
+                    </form>
+                </td>
+                <td>
+                    <a href="index.php?action=modifRole&id=<?= $role["Id_role"] ?>"><button type="submit" name="">modifier</button></a>
+                </td>
             </tr>
         <?php } ?>
     </tbody>   

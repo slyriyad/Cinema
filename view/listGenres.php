@@ -6,16 +6,23 @@
     <thead>
         <tr>
             <th>NOM</th>
+            <th>supprimer</th>
+            <th>modifier</th>
         </tr>
     </thead>
     <tbody>
         <?php foreach($requete->fetchall() as $genre) { ?>
             <tr>
                 <td><a href="index.php?action=detailGenre&id=<?= $genre["id_genre"] ?>"><?= $genre["nom"] ?></td>
-                <td><form method="post">
+                <td>
+                    <form method="post">
                         <input type="hidden" name="genre" value="<?= $genre["id_genre"] ?>">
                         <button type="submit" name="sup">supprimer</button>
-                    </form></td>
+                    </form>
+                </td>
+                <td>
+                    <a href="index.php?action=modifGenre&id=<?= $genre["id_genre"] ?>"><button type="submit" name="">modifier</button></a>
+                </td>
             </tr>
         <?php } ?>
     </tbody>   

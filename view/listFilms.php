@@ -17,10 +17,15 @@
                 <td><a href="index.php?action=detailFilm&id=<?= $film["id_film"] ?>"></a><img src="<?= $film["affiche"]?>" alt=""></td>
                 <td><a href="index.php?action=detailFilm&id=<?= $film["id_film"] ?>"><?= $film["titre"] ?></a></td>
                 <td><?= $film["anneeSortie"] ?></td>
-                <td><form method="post">
+                <td>
+                    <form method="post">
                         <input type="hidden" name="film" value="<?= $film["id_film"] ?>">
                         <button type="submit" name="sup">supprimer</button>
-                    </form></td>
+                    </form>
+                </td>
+                <td>
+                    <a href="index.php?action=modifFilm&id=<?= $film["id_film"] ?>"><button type="submit" name="">modifier</button></a>
+                </td>
             </tr>
         <?php } ?>
     </tbody>   

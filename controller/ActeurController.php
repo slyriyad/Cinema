@@ -83,5 +83,50 @@ class ActeurController {
         require "view/formActeur.php";
     }
 
+
+
+
+
+
+
+
+    public function modifActeur($id) {
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->prepare("
+        SELECT *, DATE_FORMAT(personne.dateNaissance, '%Y-%m-%d') AS dateNaissance
+        FROM acteur
+        INNER JOIN personne ON personne.id_personne = acteur.Id_personne
+        WHERE acteur.id_acteur = :id");
+        $requete->execute(["id"=>$id]);
+
+        if(isset($_POST['bouton'])){
+
+            $nom = $_POST['nom'];
+            $prenom = $_POST['prenom'];
+            $sexe = $_POST['sexe'];
+            $dateNaissance = $_POST['dateNaissance'];
+            $photo = $_POST['photo'];
+
+            $pdo = Connect::seConnecter();
+            $requeteformActeur = $pdo->prepare("
+            UPDATE personne
+            INNER JOIN acteur ON personne.id_personne = acteur.Id_personne 
+            SET nom = ?,
+            prenom = ?,
+            sexe = ?,
+            dateNaissance = ?,
+            photo = ?
+            WHERE id_acteur = ?
+            ");
+            $requeteformActeur -> execute([$nom,$prenom,$sexe,$dateNaissance,$photo,$id]);
+            header("location:index.php?action=modifActeur&id=$id");
+
+        
+        }
+        require "view/modifActeur.php";
+        
+        }
+
+
 }
 

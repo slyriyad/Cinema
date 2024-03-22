@@ -100,4 +100,73 @@ class FilmController {
         }
         require "view/formFilm.php";
     }
+
+
+
+
+
+
+    public function modifFilm($id) {
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->prepare("
+        SELECT *
+        FROM film
+        INNER JOIN realisateur ON realisateur.id_realisateur = film.id_realisateur
+        INNER JOIN personne ON personne.Id_personne = realisateur.Id_personne
+        WHERE id_film = :id
+        ");
+        $requete->execute(["id"=>$id]);
+
+        $realisateurs = $pdo->query("
+        SELECT *
+        FROM realisateur
+        INNER JOIN personne ON personne.Id_personne = realisateur.Id_personne
+        ");
+
+
+
+        $requeteGenre = $pdo->query("
+        SELECT DISTINCT posseder.id_genre,posseder.Id_film,genre.nom
+        FROM posseder
+        INNER JOIN film ON posseder.Id_film = film.Id_film
+        INNER JOIN genre ON genre.id_genre = posseder.id_genre
+        ");
+
+        
+        $requeteToutGenre = $pdo->query("
+        SELECT *
+        FROM genre
+        ");
+
+
+        if(isset($_POST['bouton'])){
+
+            $titre = $_POST['titre'];
+            $anneeSortie = $_POST['anneeSortie'];
+            $duree = $_POST['duree'];
+            $resume = $_POST['resume'];
+            $note = $_POST['note'];
+            $affiche = $_POST['affiche'];
+            $realisateur = $_POST['realisateur'];
+
+            $pdo = Connect::seConnecter();
+            $requetefilm = $pdo->prepare("
+            UPDATE film 
+            SET titre = ?,
+            anneeSortie = ?,
+            duree = ?,
+            resume = ?,
+            note = ?,
+            affiche = ?,
+            Id_realisateur = ?
+            WHERE id_film = ?
+            ");
+            $requetefilm -> execute([$titre,$anneeSortie,$duree,$resume,$note,$affiche,$realisateur,$id]);
+            header("location:index.php?action=modifFilm&id=$id");
+
+        
+        }
+        require "view/modifFilm.php";
+        
+        }
 }

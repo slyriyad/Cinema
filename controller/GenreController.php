@@ -26,6 +26,13 @@ class GenreController {
         require "view/listGenres.php";
     }
 
+
+
+
+
+
+
+
     // detail les genre
     public function detailGenre($id) {
         $pdo = Connect::seConnecter();
@@ -48,6 +55,13 @@ class GenreController {
         require "index.php?action=detailgenre.php";
     }
 
+
+
+
+
+
+
+
     // ajout les genre
     public function formGenre() {
         if(isset($_POST['bouton'])){
@@ -65,4 +79,38 @@ class GenreController {
         }
         require "view/formGenre.php";
     }
+
+
+
+
+
+
+
+
+    public function modifGenre($id) {
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->prepare("
+        SELECT *
+        FROM genre
+        WHERE genre.id_genre = :id");
+        $requete->execute(["id"=>$id]);
+
+        if(isset($_POST['bouton'])){
+
+            $nom = $_POST['nom'];
+
+            $pdo = Connect::seConnecter();
+            $requeteformGenre = $pdo->prepare("
+            UPDATE genre
+            SET nom = ?
+            WHERE id_genre = ?
+            ");
+            $requeteformGenre -> execute([$nom,$id]);
+
+        
+        }
+        require "view/modifGenre.php";
+        
+        }
 }
+

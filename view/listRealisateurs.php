@@ -16,10 +16,15 @@
                 <td><?= $realisateur["sexe"] ?></td>
                 <td><a href="index.php?action=detailRealisateur&id=<?= $realisateur["Id_realisateur"] ?>"><?= $realisateur["prenom"] ?> <?= $realisateur["nom"] ?> </td>
                 <td><?= $realisateur["dateNaissance"] ?></td>
-                <td><form method="post">
+                <td>
+                    <form method="post">
                         <input type="hidden" name="realisateur" value="<?= $realisateur["Id_realisateur"] ?>">
                         <button type="submit" name="sup">supprimer</button>
-                    </form></td>
+                    </form>
+                </td>
+                <td>
+                    <a href="index.php?action=modifRealisateur&id=<?= $realisateur["Id_realisateur"] ?>"><button type="submit" name="">modifier</button></a>
+                </td>
             </tr>
         <?php } ?>
     </tbody>   
