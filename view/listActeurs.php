@@ -1,5 +1,5 @@
 <?php ob_start(); ?>
-
+<link rel="stylesheet" type="text/css" href="public/css/listActeurs.css">
 <p>Il y a <?= $requete->rowcount() ?> acteurs </p>
 
 <table>
@@ -16,6 +16,10 @@
                 <td><?= $acteur["sexe"] ?></td>
                 <td><a href="index.php?action=detailActeur&id=<?= $acteur["id_acteur"] ?>"><?= $acteur["prenom"]." ".$acteur["nom"] ?></a></td>
                 <td><?= $acteur["dateNaissance"] ?></td>
+                <td><form method="post">
+                        <input type="hidden" name="acteur" value="<?= $acteur["id_acteur"] ?>">
+                        <button type="submit" name="sup">supprimer</button>
+                    </form></td>
             </tr>
         <?php } ?>
     </tbody>   

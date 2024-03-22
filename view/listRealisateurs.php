@@ -1,5 +1,5 @@
 <?php ob_start(); ?>
-
+<link rel="stylesheet" type="text/css" href="public/css/listrealisateurss.css">
 <p>Il y a <?= $requete->rowcount() ?> realisateur </p>
 
 <table>
@@ -16,6 +16,10 @@
                 <td><?= $realisateur["sexe"] ?></td>
                 <td><a href="index.php?action=detailRealisateur&id=<?= $realisateur["Id_realisateur"] ?>"><?= $realisateur["prenom"] ?> <?= $realisateur["nom"] ?> </td>
                 <td><?= $realisateur["dateNaissance"] ?></td>
+                <td><form method="post">
+                        <input type="hidden" name="realisateur" value="<?= $realisateur["Id_realisateur"] ?>">
+                        <button type="submit" name="sup">supprimer</button>
+                    </form></td>
             </tr>
         <?php } ?>
     </tbody>   

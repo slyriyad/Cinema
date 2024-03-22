@@ -1,5 +1,5 @@
 <?php ob_start(); ?>
-
+<link rel="stylesheet" type="text/css" href="public/css/listRoles.css">
 <p>Il y a <?= $requete->rowcount() ?> rôles </p>
 
 <table>
@@ -12,6 +12,10 @@
         <?php foreach($requete->fetchall() as $role) { ?>
             <tr>
                 <td><a href="index.php?action=detailRole&id=<?= $role["Id_role"] ?>"><?= $role["nom"] ?></td>
+                <td><form method="post">
+                        <input type="hidden" name="role" value="<?= $role["Id_role"] ?>">
+                        <button type="submit" name="sup">supprimer</button>
+                    </form></td>
             </tr>
         <?php } ?>
     </tbody>   

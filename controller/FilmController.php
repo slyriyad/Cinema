@@ -9,9 +9,20 @@ class FilmController {
         $requete = $pdo->query("
             SELECT id_film, titre, anneeSortie,affiche
             FROM film
+            WHERE deleted = 0
             ORDER BY anneeSortie DESC
         ");
 
+        if (isset($_POST['sup'])) {
+            $pdo = Connect::seConnecter();
+            $film = $_POST['film'];
+            $requeteformFilm = $pdo->prepare("
+                UPDATE film
+                SET deleted = TRUE
+                WHERE id_film = ?
+            ");
+            $requeteformFilm->execute([$film]);
+        }
         require "view/listFilms.php";
     }
 
