@@ -1,5 +1,5 @@
 <?php ob_start(); ?>
-<h1>modif Genre</h1>
+<h1>modif Acteur</h1>
 <form action="" method="post">
     <?php foreach($requete->fetchall() as $acteur) { ?>
     <label for="name">Nom:<br></label>
@@ -17,8 +17,8 @@
 </form>
 
 <?php
-$titre = "Ajout de genre";
-$titre_secondaire = "Ajout de genre";
+$titre = "Ajout de Acteur";
+$titre_secondaire = "Ajout de Acteur";
 $contenu = ob_get_clean();
 require "view/template.php";
 ?>

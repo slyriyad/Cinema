@@ -1,6 +1,7 @@
 <?php ob_start(); ?>
 <?php $acteur = $requeteActeur->fetch() ?>
-
+<h1><?= $acteur["prenom"]." ".$acteur["nom"]?></h1>
+<img src="<?= $acteur["photo"] ?>" alt=""><br>
 <strong>Date de naissance :</strong>
 <p><?= $acteur["dateNaissance"]?></p>
 
