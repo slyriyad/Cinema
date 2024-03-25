@@ -17,13 +17,20 @@ class RoleController {
         if (isset($_POST['sup'])) {
             $pdo = Connect::seConnecter();
             $role = $_POST['role'];
-            $requeteformRole = $pdo->prepare("
-                UPDATE role
-                SET deleted = TRUE
-                WHERE id_role = ?
+            $requeteJouer = $pdo->prepare("
+            DELETE FROM jouer
+            WHERE id_role = ?
             ");
-            header("location:index.php?action=listRoles");
+            $requeteJouer->execute([$role]);
+            
+            $role = $_POST['role'];
+            $requeteformRole = $pdo->prepare("
+            DELETE FROM role
+            WHERE id_role = ?
+            ");
             $requeteformRole->execute([$role]);
+
+            header("location:index.php?action=listRoles");
         }
         require "view/listRoles.php";
     }

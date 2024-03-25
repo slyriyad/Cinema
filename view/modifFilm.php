@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 <form action="" method="post">
     <?php foreach($requete->fetchall() as $film) { ?>
-        <label for="titre">titre:<br></label>
+        <label for="titre">titcre:<br></label>
         <input type="text" value="<?= $film["titre"]?>" name="titre"><br>
         <label for="anneeSortie">anneeSortie:<br></label>
         <input type="text" value="<?= $film["anneeSortie"]?>" name="anneeSortie"><br>
@@ -20,11 +20,10 @@
         </select>
         <div>
             <div>
-                <?php foreach ($requeteToutGenre as $genres) { ?>
-                    <?php foreach ($requeteGenre as $genre) { ?>
-                    <label for="<?= $genre['id_genre'] ?>"><input type="checkbox" id="<?= $genres['id_genre'] ?>" value="<?= $genre['id_genre'] ?>" name="genre" <?= ($film["Id_film"] == $genre['Id_film']) ? 'checked' : '' ?>><?= $genres['nom'] ?></label>
+                <?php foreach ($requeteToutGenre->fetchall() as $genres) { ?>
+
+                    <label for="<?= $genres['id_genre'] ?>"><input type="checkbox" id="<?= $genres['id_genre'] ?>" value="<?= $genres['id_genre'] ?>" name="genre" ><?= $genres['nom'] ?></label>
                     <?php } ?>
-                <?php } ?>
             </div>
         </div>
 <?php } ?>

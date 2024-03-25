@@ -28,6 +28,7 @@
                             <a class="drop" href="index.php?action=formRealisateur">Réalisateur</a>
                             <a class="drop" href="index.php?action=formRole">Rôle</a>
                             <a class="drop" href="index.php?action=formGenre">Genre</a>
+                            <a class="drop" href="index.php?action=formCasting">Casting</a>
                         </div>
                     </li>
                     <li><a href="index.php?action=listFilms">Films</a></li>

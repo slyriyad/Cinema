@@ -5,6 +5,7 @@ use Controller\RealisateurController;
 use Controller\GenreController;
 use Controller\FilmController;
 use Controller\HomeController;
+use Controller\CastingController;
 
 spl_autoload_register(function($class_name) {
     include $class_name . '.php';
@@ -16,6 +17,7 @@ $ctrlRealisateur = new RealisateurController();
 $ctrlGenre = new GenreController();
 $ctrlFilm = new FilmController();
 $ctrlHome = new HomeController();
+$ctrlCasting = new CastingController();
 
 $id = (isset($_GET["id"])) ? $_GET["id"] : null;
 
@@ -42,6 +44,7 @@ if(isset($_GET["action"])) {
         case "detailGenre" : $ctrlGenre->detailGenre($id); break;
         case "formGenre" : $ctrlGenre->formGenre(); break;
         case "modifGenre" : $ctrlGenre->modifGenre($id); break;
+        case "formCasting" : $ctrlCasting->formCasting(); break;
         case "home" : $ctrlHome->home(); break;
     }
 }
