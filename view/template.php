@@ -13,11 +13,23 @@
 <body>
     <div id="wrapper">
         <header>
+        <label id="hamburger-logo" for="hamburger">☰</label>
             <a class="logo1" href="index.php?action=home"><img class="logo" src="public/img/logo_cinéma.png" alt=""></a>
             <form action="/action_page.php">
                 <input class="searchBar" type="text" placeholder="Search.." name="search">
                 <button class="searchBtn" type="submit"><i class="fa fa-search"></i></button>
             </form>
+            <div class="menu-burger">
+
+                <div class="burger">
+                    <a href="#">Film</a>
+                    <a href="#">Acteur</a>
+                    <a href="#">Réalisateur</a>
+                    <a href="#">Rôle</a>
+                    <a href="#">Genre</a>
+                    <a href="#">ajouter</a>
+                </div>
+            </div>  
             <nav>
                 <ul>
                     <li class="dropdown">
@@ -40,11 +52,13 @@
             </nav>
         </header>
         <main>
-            <div id="contenu">
+            <!-- <div id="contenu">
                 <?= $contenu ?>
-            </div>
+            </div> -->
         </main>
         <footer>
+        <button class="searchBtnF" type="submit"><i class="fa fa-search"></i></button>
+            <!-- <img src="public/img/footer2.png" alt=""> -->
             <div class="footer-reso">
                 <div class="reso">
                     <i class="fa-brands fa-facebook-f"></i>

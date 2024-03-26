@@ -16,7 +16,9 @@
     justify-content: space-between;
 }
 
-
+#hamburger-logo{
+    display: none;
+}
 header{
     display: flex;
     flex-direction: row;
@@ -24,6 +26,16 @@ header{
     align-items: center;
     background-color: #725AC1;
 
+}
+
+
+.menu-burger{
+    display: none;
+}
+
+
+.barres{
+    display: none;
 }
 
 header a {
@@ -34,6 +46,7 @@ header a {
     width: 75%;
     padding-left: 2%;
 }
+
 
 .logo1{
 padding: 0%;
@@ -61,6 +74,14 @@ justify-content: center;
     border-radius: 6px;
     font-size: 12px;
 }
+
+
+
+.searchBtnF{
+    display: none;
+
+}
+
 
 nav ul {
     list-style-type: none;
@@ -195,90 +216,112 @@ main{
 
 @media screen and (max-width: 900px) {
     #wrapper{
-        width: 100%;
+        min-width: 100vw;
     }
     header{
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #725AC1;
-        width: 100%;
+        justify-content: center;
+        
     
     }
-    
-    header a {
-        width: 15%;
-        padding: 0%;
+
+    .barres{
+        display: block;
     }
+    main {
+        /* Pour que le texte ne soit pas sous le menu */
+         box-sizing: content-box;
+         width: 100%;
+         text-align: justify;
+    }
+    
+
+    form{
+        display: none;
+    }
+
+
     .logo {
-        width: 75%;
-        padding-left: 2%;
+        width: 120%;
+        padding: 5% 0% 5% 0%;
+        margin: 5%;
+        /* position: relative;
+        right: -280%; */
     }
     
-    .logo1{
-    padding: 0%;
-    display: flex;
-    justify-content: center;
-    }
     
     .searchBar{
-        width: 350px;
-        border-radius: 10px;
-        padding: 8px;
-        border: none;
-        outline: none;
-    }
-    
-    
-    .searchBtn{
-        width: 20px;
-        height: 20px;
-        position: relative;
-        right: 30px;
-        background-color: #725AC1;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        font-size: 12px;
-    }
-    
-    nav ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        background-color: #725AC1;
-    }
-    
-    nav ul li {
-        display: inline-block;
-        position: relative; /* Ajout de cette ligne */
-    }
-    
-    nav ul li a {
-        display: block;
-        color: rgb(255, 255, 255);
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-    
-    nav ul li:hover {
-        background-color: #8b78ca;
-    }
-    
-    nav ul li ul {
         display: none;
-        position: absolute;
-        background-color: #333;
-        width: 100%; /* Ajout de cette ligne */
-        left: 0; /* Ajout de cette ligne */
-        top: 100%; /* Ajout de cette ligne */
+
     }
     
     
-    ul {
+    
+    
+    nav{
+        width: 100%;
+        display:none;
+    }
+
+    
+    
+    main{
+        background: rgb(255,255,255);
+        background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(162,146,214,1) 53%, rgba(114,90,193,1) 100%);
+    }
+
+    
+    
+    footer {
+        position: fixed;
+        bottom: 0%;
+        right:0%;
+        box-sizing: content-box;
+        height: 150px;
+        width: 100%;
         display: flex;
         flex-direction: row;
-    }    
+        justify-content: center;
+        align-items: center;
+        color: white;
+        background-color: #725AC1;
+        border-radius: 50% / 100%;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        box-shadow:0px 0px 13px #000000;
+        margin-bottom: -30px;
+    }
+    
+    .searchBtnF{
+        display: block;
+        z-index: 8;
+        bottom: 4%;
+        font-size: 40px;
+        background-color: transparent;
+        color: white;
+        border: none;
+
+    }
+
+    .footerImg{
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+    
+    
+    .footer-reso{
+        display: none;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    
+    .reso {
+        margin:15%
+    }
+    
+   
+    
+    
 }
