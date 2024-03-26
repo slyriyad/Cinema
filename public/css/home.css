@@ -21,26 +21,32 @@
     width: 100%;
   }
   .gHaut {
-      background-color: rgb(177, 0, 0);
+
       box-sizing: content-box;
       width: 100%;
+      padding: 7% 0%;
+      position: relative;
+      overflow: hidden;
+ 
 
       
   }
   .gHaut img{
       box-sizing: content-box;
-      width: 100%;
+      width: 80%;
       border-radius: 20px;
       filter: brightness(50%);
+      position: relative;
   }
   
   .gHaut .text {
       z-index: 1;
       position: absolute;
-      left: 80px;
-      top: 130px;
+      left: 15%;
+      top: 15%;
       color: white;
-      width: 40%;
+      width: 70%;
+      height: 20%;
       text-decoration: none;
       text-align: left;
       
@@ -70,7 +76,6 @@
     box-sizing: content-box;
     font-size: 15px;
     font-weight: 200;
-    white-space: wrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }

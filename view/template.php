@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="public/css/template.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,23 +13,12 @@
 <body>
     <div id="wrapper">
         <header>
-        <label id="hamburger-logo" for="hamburger">☰</label>
+        <button id="hamburger-logo" for="hamburger">☰</button>
             <a class="logo1" href="index.php?action=home"><img class="logo" src="public/img/logo_cinéma.png" alt=""></a>
             <form action="/action_page.php">
                 <input class="searchBar" type="text" placeholder="Search.." name="search">
                 <button class="searchBtn" type="submit"><i class="fa fa-search"></i></button>
             </form>
-            <div class="menu-burger">
-
-                <div class="burger">
-                    <a href="#">Film</a>
-                    <a href="#">Acteur</a>
-                    <a href="#">Réalisateur</a>
-                    <a href="#">Rôle</a>
-                    <a href="#">Genre</a>
-                    <a href="#">ajouter</a>
-                </div>
-            </div>  
             <nav>
                 <ul>
                     <li class="dropdown">
@@ -52,9 +41,20 @@
             </nav>
         </header>
         <main>
-            <!-- <div id="contenu">
+            <div class="menu-burger">
+    
+                <div class="burger">
+                    <a href="#">Film</a>
+                    <a href="#">Acteur</a>
+                    <a href="#">Réalisateur</a>
+                    <a href="#">Rôle</a>
+                    <a href="#">Genre</a>
+                    <a href="#">ajouter</a>
+                </div>
+            </div>  
+            <div id="contenu">
                 <?= $contenu ?>
-            </div> -->
+            </div>
         </main>
         <footer>
         <button class="searchBtnF" type="submit"><i class="fa fa-search"></i></button>
@@ -88,6 +88,7 @@
                 });
             });
         });
-    </script>
+        </script>
+        <script  src="public/js/template.js"></script>
 </body>
 </html>

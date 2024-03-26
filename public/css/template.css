@@ -5,7 +5,8 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family:'poppins'
+    font-family:'poppins';
+    vertical-align: top;
 }
 
 
@@ -16,18 +17,18 @@
     justify-content: space-between;
 }
 
-#hamburger-logo{
-    display: none;
-}
 header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     background-color: #725AC1;
-
+    
 }
 
+#hamburger-logo{
+    display: none;
+}
 
 .menu-burger{
     display: none;
@@ -221,20 +222,57 @@ main{
     header{
         display: flex;
         justify-content: center;
+        z-index: 9;
         
     
     }
 
-    .barres{
+    #hamburger-logo{
         display: block;
+        position: fixed;
+        right: 20px;
+        top: 2%;
+        color: white;
+        font-size: 180%;
+        font-weight: 700;
+        background-color: transparent;
+        border: none;
+        text-shadow: 0px 0px 0px red, 0 0 1em blue, 0 0 0.4em #725AC1; ;
     }
-    main {
-        /* Pour que le texte ne soit pas sous le menu */
-         box-sizing: content-box;
-         width: 100%;
-         text-align: justify;
+
+
+    .menu-burger{
+        padding-top: 50px;
+        position: fixed;
+        top: -100vh;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        background-color: white;
+        justify-content: center;
+        z-index: 8;
+        transition: 0.5s;
+
+
     }
-    
+
+
+    .burger{
+        padding-top: 5%;
+        display: flex;
+        flex-direction: column;
+        font-style: none;
+    }
+
+
+    .burger a{
+        text-align: center;
+        color: #725AC1;
+        padding-top: 25%;
+        text-decoration: none;
+        font-size: xx-large;
+        font-weight: 600;
+    }
 
     form{
         display: none;
@@ -242,9 +280,9 @@ main{
 
 
     .logo {
-        width: 120%;
-        padding: 5% 0% 5% 0%;
-        margin: 5%;
+        width: 150%;
+        padding: 60% 0% 5% 0%;
+
         /* position: relative;
         right: -280%; */
     }
@@ -266,7 +304,7 @@ main{
     
     
     main{
-        background: rgb(255,255,255);
+        background: rgb(0, 0, 0);
         background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(162,146,214,1) 53%, rgba(114,90,193,1) 100%);
     }
 
@@ -290,6 +328,7 @@ main{
         border-bottom-right-radius: 0;
         box-shadow:0px 0px 13px #000000;
         margin-bottom: -30px;
+        z-index: 9;
     }
     
     .searchBtnF{
