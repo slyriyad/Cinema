@@ -20,15 +20,17 @@
                 <div class="card-header">
                 <img src="<?=$film["affiche"]?>" alt="">
                 </div>
-                <div class="card-text">
-                    <p class="card-titre"><?=$film["titre"]?></p>
-                    <p class="card-article">
-                    <?=$film["resume"]?>
-                    </p >
+                <div class="card-body">
+                    <div class="card-text">
+                        <p class="card-titre"><?=$film["titre"]?></p>
+                        <p class="card-article">
+                        <?=$film["resume"]?>
+                        </p >
+                    </div>
+                    <a href="index.php?action=detailFilm&id=<?= $film["Id_film"] ?>"><button href="" class="cardBtn">Learn More</button></a>
                 </div>
-                <a href="index.php?action=detailFilm&id=<?= $film["Id_film"] ?>"><button href="" class="cardBtn">Learn More</button></a>
             </div>
-            <?php } ?>
+        <?php } ?>
     </div>
 </div>
 <div class="droite">
