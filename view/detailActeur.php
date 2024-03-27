@@ -1,4 +1,5 @@
 <?php ob_start(); ?>
+<link rel="stylesheet" type="text/css" href="public/css/detailActeur.css" /> 
 <?php $acteur = $requeteActeur->fetch() ?>
 <h1><?= $acteur["prenom"]." ".$acteur["nom"]?></h1>
 <img src="<?= $acteur["photo"] ?>" alt=""><br>

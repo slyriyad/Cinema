@@ -7,7 +7,7 @@ class ActeurController {
     public function listActeurs() {
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
-        SELECT id_acteur, personne.sexe,nom, personne.prenom, DATE_FORMAT(personne.dateNaissance, '%d/%m/%Y') AS dateNaissance
+        SELECT id_acteur, personne.photo,nom, personne.prenom, DATE_FORMAT(personne.dateNaissance, '%d/%m/%Y') AS dateNaissance
         FROM acteur
         INNER JOIN personne ON personne.id_personne = acteur.Id_personne
         WHERE deleted = 0

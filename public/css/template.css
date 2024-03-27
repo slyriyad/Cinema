@@ -217,7 +217,7 @@ main{
 
 @media screen and (max-width: 900px) {
     #wrapper{
-        min-width: 100vw;
+        width: 100vw;
     }
     header{
         display: flex;
@@ -231,7 +231,7 @@ main{
         display: block;
         position: fixed;
         right: 50px;
-        top: 7%;
+        top: 5%;
         color: white;
         font-size: 180%;
         font-weight: 700;
@@ -244,7 +244,7 @@ main{
     .menu-burger{
         padding-top: 50px;
         position: fixed;
-        top: -150vh;
+        top: -250vh;
         height: 100vh;
         width: 100vw;
         display: flex;
@@ -274,14 +274,14 @@ main{
         font-weight: 600;
     }
 
-    form{
+    .templateForm{
         display: none;
     }
 
 
     .logo {
         width: 150%;
-        padding: 60% 0% 5% 0%;
+        padding: 60% 0% 40% 0%;
 
         /* position: relative;
         right: -280%; */
@@ -305,7 +305,8 @@ main{
     
     main{
         background: rgb(255, 255, 255);
-        background: linear-gradient(0deg, rgba(255,255,255,0) 82%, rgba(114,90,193,1) 100%);
+        background: linear-gradient(0deg, rgba(255,255,255,0) 90%, rgba(114,90,193,1) 100%);
+        padding-bottom: 6%;
     }
     
     footer {

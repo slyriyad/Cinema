@@ -6,7 +6,7 @@ img {
 
 td, th {
     width: 40%; /* Largeur des cellules de tableau */
-    height: 100px; /* Hauteur des cellules de tableau */
+    height: 200px; /* Hauteur des cellules de tableau */
 }
 
 

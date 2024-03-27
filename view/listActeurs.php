@@ -5,15 +5,17 @@
 <table>
     <thead>
         <tr>
-            <th>SEXE</th>
+            <th>PHOTO</th>
             <th>ACTEUR</th>
             <th>DATENAISSANCE</th>
+            <th>SUPPRIMER</th>
+            <th>MODIFIER</th>
         </tr>
     </thead>
     <tbody>
         <?php foreach($requete->fetchall() as $acteur) { ?>
             <tr>
-                <td><?= $acteur["sexe"] ?></td>
+                <td><img src="<?= $acteur["photo"] ?>" alt=""></td>
                 <td><a href="index.php?action=detailActeur&id=<?= $acteur["id_acteur"] ?>"><?= $acteur["prenom"]." ".$acteur["nom"] ?></a></td>
                 <td><?= $acteur["dateNaissance"] ?></td>
                 <td>

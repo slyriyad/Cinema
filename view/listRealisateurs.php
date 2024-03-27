@@ -1,19 +1,20 @@
 <?php ob_start(); ?>
-<link rel="stylesheet" type="text/css" href="public/css/listrealisateurss.css">
-<p>Il y a <?= $requete->rowcount() ?> realisateur </p>
+<link rel="stylesheet" type="text/css" href="public/css/listRealisateur.css">
 
 <table>
     <thead>
         <tr>
-            <th>SEXE</th>
+            <th>PHOTO</th>
             <th>REALISATEUR</th>
             <th>DATE NAISSANCE</th>
+            <th>SUPPRIMER</th>
+            <th>MODIFIER</th>
         </tr>
     </thead>
     <tbody>
         <?php foreach($requete->fetchall() as $realisateur) { ?>
             <tr>
-                <td><?= $realisateur["sexe"] ?></td>
+                <td><img src="<?= $realisateur["photo"] ?>" alt=""></td>
                 <td><a href="index.php?action=detailRealisateur&id=<?= $realisateur["Id_realisateur"] ?>"><?= $realisateur["prenom"] ?> <?= $realisateur["nom"] ?> </td>
                 <td><?= $realisateur["dateNaissance"] ?></td>
                 <td>

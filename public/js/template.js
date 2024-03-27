@@ -7,6 +7,6 @@ boutton.addEventListener('click', function() {
     if (boutton.classList.contains('clicked')) {
         menuBurger.style.top = '0'
     } else {
-        menuBurger.style.top = '-100%'
+        menuBurger.style.top = '-200vh'
     }
 })

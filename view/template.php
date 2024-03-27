@@ -9,13 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title><?= $titre ?></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
     <div id="wrapper">
         <header>
         <button id="hamburger-logo" for="hamburger">☰</button>
             <a class="logo1" href="index.php?action=home"><img class="logo" src="public/img/logo_cinéma.png" alt=""></a>
-            <form action="/action_page.php">
+            <form class="templateForm" action="/action_page.php">
                 <input class="searchBar" type="text" placeholder="Search.." name="search">
                 <button class="searchBtn" type="submit"><i class="fa fa-search"></i></button>
             </form>
@@ -44,11 +45,11 @@
             <div class="menu-burger">
     
                 <div class="burger">
-                    <a href="#">Film</a>
-                    <a href="#">Acteur</a>
-                    <a href="#">Réalisateur</a>
-                    <a href="#">Rôle</a>
-                    <a href="#">Genre</a>
+                <a href="index.php?action=listFilms">Film</a>
+                <a href="index.php?action=listActeurs">Acteur</a>
+                <a href="index.php?action=listRealisateurs">Réalisateur</a>
+                <a href="index.php?action=listRoles">Rôle</a>
+                <a href="index.php?action=listGenres">Genre</a>
                     <a href="#">ajouter</a>
                 </div>
             </div>  
@@ -89,6 +90,15 @@
             });
         });
         </script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // JavaScript pour initialiser Swiper
+        document.addEventListener("DOMContentLoaded", function() {
+            const swiper = new Swiper('.swiper', {
+                // Vos options Swiper ici
+            });
+        });
+    </script>
         <script  src="public/js/template.js"></script>
 </body>
 </html>

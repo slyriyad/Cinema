@@ -1,15 +1,15 @@
 <?php ob_start(); ?>
 <link rel="stylesheet" type="text/css" href="public/css/listFilms.css">
-<p>Il y a <?= $requete->rowcount() ?> acteurs </p>
+
 
 <table>
     <thead>
         <tr>
-            <th></th>
+            <th>AFFICHE</th>
             <th>TITRE</th>
             <th>ANNEE SORTIE</th>
-            <th>supprimer</th>
-        </tr>
+            <th>SUPPRIMER</th>
+            <th>MODIFIER</th>
     </thead>
     <tbody>
         <?php foreach($requete->fetchall() as $film) { ?>

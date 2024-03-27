@@ -53,27 +53,25 @@
         </div>
     </div>
     <div class="dBas">
-        <p class="categ1">Films Populaires</p>
-        <div class="carousel">
-            <div class="carousel__scene">
-                <ol class="carousel__list">
-                <?php foreach($filmPopulaire as $filmpop ){ ?>
-                    <li class="carousel__cell"><a href="index.php?action=detailFilm&id=<?= $filmpop["Id_film"] ?>"><img src="<?= $filmpop["affiche"]?>" alt=""></li></a>
-                <?php } ?>
-                </ol>
-            </div>
-            <div class="carousel__controls">
-                <button class="previous-button"><i class="fa-solid fa-circle-up"></i></button>
-                <button class="next-button"><i class="fa-solid fa-circle-down"></i></button>
+        <p class="categ">Films Populaires</p>
+        <div class="swipper">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <?php foreach($filmPopulaire as $filmpop ){ ?>
+                        <div class="swiper-slide"><a href="index.php?action=detailFilm&id=<?= $filmpop["Id_film"] ?>"><img src="<?= $filmpop["affiche"]?>" alt=""></a></div>
+                    <?php } ?>
+                </div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
     </div>    
 </div>
 <script  src="public/js/home.js"></script>
 
-
 <?php
 
 $contenu = ob_get_clean();
 require "view/template.php";
 ?>
+
+
