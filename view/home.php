@@ -39,7 +39,10 @@
             <p class="categ">Acteurs</p>
             <div class="ImgDH">
                 <?php foreach($acteur as $act ){ ?>
-                    <a href="index.php?action=detailActeur&id=<?= $act["Id_acteur"] ?>"><img src="<?=$act["photo"]?>" alt=""></a>
+                    <a class="photo" href="index.php?action=detailActeur&id=<?= $act["Id_acteur"] ?>">
+                    <img src="<?=$act["photo"]?>" alt="">
+                    <p class="nom"><?=$act["prenom"]?> <?=$act["nom"]?></p>
+                </a>
                 <?php } ?>
             </div>
         </div>
@@ -47,7 +50,10 @@
             <p class="categ">Producteurs</p>
             <div class="ImgDH">
                 <?php foreach($realisateur as $real ){ ?>
-                    <a href="index.php?action=detailRealisateur&id=<?= $real["Id_realisateur"] ?>"><img src="<?=$real["photo"]?>" alt=""></a>
+                    <a class="photo" href="index.php?action=detailRealisateur&id=<?= $real["Id_realisateur"] ?>">
+                    <img src="<?=$real["photo"]?>" alt="">
+                    <p class="nom"><?=$real["prenom"]?> <?=$real["nom"]?></p>
+                </a>
                 <?php } ?>
             </div>
         </div>
