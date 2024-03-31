@@ -1,33 +1,28 @@
 <?php ob_start(); ?>
 <link rel="stylesheet" type="text/css" href="public/css/detailActeur.css" /> 
+
 <?php $acteur = $requeteActeur->fetch() ?>
-<h1><?= $acteur["prenom"]." ".$acteur["nom"]?></h1>
-<img src="<?= $acteur["photo"] ?>" alt=""><br>
-<strong>Date de naissance :</strong>
+<p class="nomAct" ><?= $acteur["prenom"]." ".$acteur["nom"]?></p >
+<div class="photo">
+    <img src="<?= $acteur["photo"] ?>" alt="">
+</div>
+
+<p class="cat" >Date de naissance :</p>
 <p><?= $acteur["dateNaissance"]?></p>
 
-<h3>Filmographie</h3>
 
-<table>
-    <thead>
-        <tr>
-            <th>TITRE</th>
-            <th>ANNEE DE SORTIE</th>
-            <th>ROLE</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach($requeteFilm->fetchall() as $film) { ?>
-            <tr>
+<p class="cat">Filmographie</p>
 
-                <td><a href="index.php?action=detailFilm&id=<?= $film["Id_film"] ?>"><?= $film["titre"] ?></td>
-                <td><?= $film["anneeSortie"] ?></td>
-                <td><a href="index.php?action=detailRole&id=<?= $film["Id_role"] ?>"><?= $film["nom"] ?></td>
-                
-            </tr>
-        <?php } ?>
-    </tbody>   
-</table>
+<div class="swipper">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                <?php foreach($requeteFilm->fetchall() as $film) { ?>
+                        <div class="swiper-slide"><a href="index.php?action=detailFilm&id=<?= $film["Id_film"] ?>"><img src="<?= $film["affiche"] ?>" alt=""><div class="nom"><?= $film["titre"] ?></div></a><a  href="index.php?action=detailRole&id=<?= $film["Id_role"] ?>"><p class="role"><?= $film["nom"] ?><p></a></div>
+                    <?php } ?>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
 
 <?php
 $titre = "details $acteur[prenom].' '.$acteur[nom]";
