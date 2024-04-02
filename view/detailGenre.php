@@ -1,7 +1,8 @@
 <?php ob_start(); ?>
 <?php $genre = $requeteGenre->fetch() ?>
+<link rel="stylesheet" type="text/css" href="public/css/detailGenre.css" /> 
 
-<h1><?=$genre["nom"]?></h1>
+<p class="nom"><?=$genre["nom"]?></p>
 
 <h3>Films</h3>
 
@@ -9,16 +10,13 @@
     <thead>
         <tr>
             <th>TITRE</th>
-            <th>ANNEE DE SORTIE</th>
         </tr>
     </thead>
     <tbody>
         <?php foreach($requeteFilm->fetchall() as $film) { ?>
             <tr>
 
-                <td><a href="index.php?action=detailFilm&id=<?= $film["Id_film"] ?>"><?= $film["titre"] ?></td>
-                <td><?= $film["anneeSortie"] ?></td>
-                
+                <td><a href="index.php?action=detailFilm&id=<?= $film["Id_film"] ?>"><img src="<?= $film["affiche"] ?>" alt=""><?= $film["titre"] ?><?= $film["anneeSortie"] ?></td>
             </tr>
         <?php } ?>
     </tbody>   

@@ -52,7 +52,7 @@ class GenreController {
         ORDER BY anneeSortie DESC
         "); // renvoie potentiellement plusieurs lignes
         $requeteFilm->execute(["id"=>$id]);
-        require "index.php?action=detailgenre.php";
+        require "view/detailGenre.php";
     }
 
 
