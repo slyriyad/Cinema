@@ -12,6 +12,8 @@
     height: 80vw;
     border-radius: 15px;
     object-fit: cover;
+
+
 }
 
 .photo{
@@ -43,45 +45,45 @@ p{
     height: 100%;
     padding-bottom: 20vh;
     overflow: visible;
-  }
-  
-  
-  .swipper a {
-    width: 100%;
-    margin: 0% 2%;
-    text-decoration: none;
-  }
-  
-  
-  
-  
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 25vh;
-    object-fit: cover;
-    object-position: top;
-    border-radius: 15px;
-  
-  }
-  
-  .swiper {
-    width: 80%;
-    height: 50ù;
-  }
+}
 
 
-  .nom {
+.swipper a {
+width: 100%;
+margin: 0% 2%;
+text-decoration: none;
+}
+
+
+
+
+.swiper-slide {
+text-align: center;
+font-size: 18px;
+background: #fff;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.swiper-slide img {
+display: block;
+width: 100%;
+height: 25vh;
+object-fit: cover;
+object-position: top;
+border-radius: 15px;
+
+}
+
+.swiper {
+width: 80%;
+height: 50ù;
+}
+
+
+.nom {
     text-decoration: none;
     font-size: 5vw;
     color: black;

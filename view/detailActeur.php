@@ -14,15 +14,15 @@
 <p class="cat">Filmographie</p>
 
 <div class="swipper">
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                <?php foreach($requeteFilm->fetchall() as $film) { ?>
-                        <div class="swiper-slide"><a href="index.php?action=detailFilm&id=<?= $film["Id_film"] ?>"><img src="<?= $film["affiche"] ?>" alt=""><div class="nom"><?= $film["titre"] ?></div></a><a  href="index.php?action=detailRole&id=<?= $film["Id_role"] ?>"><p class="role"><?= $film["nom"] ?><p></a></div>
-                    <?php } ?>
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+        <?php foreach($requeteFilm->fetchall() as $film) { ?>
+                <div class="swiper-slide"><a href="index.php?action=detailFilm&id=<?= $film["Id_film"] ?>"><img src="<?= $film["affiche"] ?>" alt=""><div class="nom"><?= $film["titre"] ?></div></a><a  href="index.php?action=detailRole&id=<?= $film["Id_role"] ?>"><p class="role"><?= $film["nom"] ?><p></a></div>
+            <?php } ?>
         </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
 
 <?php
 $titre = "details $acteur[prenom].' '.$acteur[nom]";

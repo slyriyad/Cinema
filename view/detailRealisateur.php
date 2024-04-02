@@ -1,31 +1,30 @@
 <?php ob_start(); ?>
-<?php $realisateur = $requeteRealisateur->fetch() ?>
-<h1><?= $realisateur["prenom"]." ".$realisateur["nom"]?></h1>
-<img src="<?= $realisateur["photo"] ?>" alt=""><br>
+<link rel="stylesheet" type="text/css" href="public/css/detailRealisateur.css" />
 
-<strong>Date de naissance :</strong>
+
+<?php $realisateur = $requeteRealisateur->fetch() ?>
+<p class="nomAct" ><?= $realisateur["prenom"]." ".$realisateur["nom"]?></p >
+<div class="photo">
+    <img src="<?= $realisateur["photo"] ?>" alt="">
+</div>
+
+<p class="cat" >Date de naissance :</p>
 <p><?= $realisateur["dateNaissance"]?></p>
 
-<h3>Filmographie</h3>
+<p class="cat">Filmographie</p>
 
-<table>
-    <thead>
-        <tr>
-            <th>TITRE</th>
-            <th>ANNEE DE SORTIE</th>
-        </tr>
-    </thead>
-    <tbody>
+<div class="swipper">
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
         <?php foreach($requeteFilm->fetchall() as $film) { ?>
-            <tr>
+                <div class="swiper-slide"><a href="index.php?action=detailFilm&id=<?= $film["Id_film"] ?>"><img src="<?= $film["affiche"] ?>" alt=""><div class="nom"><?= $film["titre"] ?></div></a></div>
+            <?php } ?>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
 
-                <td><a href="index.php?action=detailFilm&id=<?= $film["Id_film"] ?>"><?= $film["titre"] ?></td>
-                <td><?= $film["anneeSortie"] ?></td>
-                
-            </tr>
-        <?php } ?>
-    </tbody>   
-</table>
+
 
 <?php
 $titre = "details $realisateur[prenom].' '.$realisateur[nom]";
