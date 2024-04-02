@@ -50,7 +50,12 @@
                 <a href="index.php?action=listRealisateurs">Réalisateur</a>
                 <a href="index.php?action=listRoles">Rôle</a>
                 <a href="index.php?action=listGenres">Genre</a>
-                    <a href="#">ajouter</a>
+                    <a href="index.php?action=formFilm">Ajouter film</a>
+                    <a href="index.php?action=formActeur">Ajouter acteur</a>
+                    <a href="index.php?action=formRealisateur">Ajouter réalisateur</a>
+                    <a href="index.php?action=formRole">Ajouter rôle</a>
+                    <a href="index.php?action=formGenre">Ajouter genre</a>
+                    <a href="index.php?action=formCasting">Ajouter casting</a>
                 </div>
             </div>  
             <div id="contenu">

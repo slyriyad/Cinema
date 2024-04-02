@@ -1,5 +1,4 @@
 <?php ob_start(); ?>
-<?php $requeteGenre->fetchall() ?>
 <form action="" method="post">
     <?php foreach($requete->fetchall() as $film) { ?>
         <label for="titre">titcre:<br></label>
@@ -21,15 +20,27 @@
         </select>
         <div>
             <div>
-                <?php foreach ($requeteToutGenre->fetchall() as $genres) { ?>
-
-                    <label for="<?= $genres['id_genre'] ?>"><input type="checkbox" id="<?= $genres['id_genre'] ?>" value="<?= $genres['id_genre'] ?>" name="genre" <?= ($film["Id_film"] == $genre['Id_film']) ? 'checked' : '' ?>><?= $genres['nom'] ?></label>
-                    <?php } ?>
+                <?php foreach ($requeteToutGenre->fetchAll() as $genre) { ?>
+                    <?php
+                    // Vérifier si le genre est associé au film
+                    $isChecked = false;
+                    foreach ($filmGenres as $filmGenre) {
+                        if ($filmGenre['id_genre'] == $genre['id_genre']) {
+                            $isChecked = true;
+                            break;
+                        }
+                    }
+                    ?>
+                    <label for="<?= $genre['id_genre'] ?>">
+                        <input type="checkbox" id="<?= $genre['id_genre'] ?>" value="<?= $genre['id_genre'] ?>" name="genre" <?= $isChecked ? 'checked' : '' ?>>
+                        <?= $genre['nom'] ?>
+                    </label>
+                <?php } ?>
             </div>
         </div>
 <?php } ?>
-        <input type="submit" value="ajouter" class="bouton" name="bouton">
-    </form>
+    <input type="submit" value="ajouter" class="bouton" name="bouton">
+</form>
 
     <?php
 $titre = "Modif de Film";

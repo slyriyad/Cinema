@@ -125,14 +125,10 @@ class FilmController {
 
 
 
-        $requeteGenre = $pdo->prepare("
-        SELECT DISTINCT posseder.id_genre,posseder.Id_film,genre.nom
-        FROM posseder
-        INNER JOIN film ON posseder.Id_film = film.Id_film
-        INNER JOIN genre ON genre.id_genre = posseder.id_genre
-        WHERE posseder.Id_Film = :id
-        ");
-        $requeteGenre->execute(["id"=>$id]);
+        // Récupérer les genres associés au film
+    $requeteGenresFilm = $pdo->prepare("SELECT * FROM posseder WHERE Id_film = :id");
+    $requeteGenresFilm->execute(["id" => $id]);
+    $filmGenres = $requeteGenresFilm->fetchAll();
         
         $requeteToutGenre = $pdo->query("
         SELECT *
