@@ -1,0 +1,39 @@
+img {
+    width: 100%;
+    height: 100%; /* Redimensionne l'image pour remplir complètement la cellule */
+    object-fit: cover;
+    object-position: top;
+}
+
+td, th {
+    width: 40%; /* Largeur des cellules de tableau */
+    height: 250px; /* Hauteur des cellules de tableau */
+}
+
+
+ td,  th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    
+  }
+  
+   tr:nth-child(even){background-color: #f2f2f2;}
+  
+   tr:hover {background-color: #ddd;}
+  
+   th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #725AC1;
+    color: white;
+  }
+
+
+  .nom{
+    font-size: 12vw;
+    text-align: center;
+    font-weight: 600;
+    color: #725AC1;
+    margin-top: 15%;
+}

@@ -1,27 +1,22 @@
 <?php ob_start(); ?>
 <?php $role = $requeteRole->fetch() ?>
+<link rel="stylesheet" type="text/css" href="public/css/detailRole.css" /> 
 
-<h1><?= $role["nom"]?></h1>
-<strong>Date de naissance :</strong>
-
-<h3>Acteurs</h3>
+<p class="nom"><?= $role["nom"]?></p >
 
 <table>
     <thead>
         <tr>
             <th>ACTEUR</th>
             <th>FILM</th>
-            <th>ANNEE SORTIE</th>
         </tr>
     </thead>
     <tbody>
         <?php foreach($requeteActeur->fetchall() as $acteur) { ?>
             <tr>
 
-                <td><a href="index.php?action=detailActeur&id=<?= $acteur["Id_acteur"] ?>"><?= $acteur["prenom"]." ".$acteur["nom"] ?></td>
-                <td><a href="index.php?action=detailFilm&id=<?= $acteur["Id_film"] ?>"><?= $acteur["titre"] ?></td>
-                <td><?= $acteur["anneeSortie"] ?></td>
-                
+                <td><a href="index.php?action=detailActeur&id=<?= $acteur["Id_acteur"] ?>"><img src="<?= $acteur["photo"] ?>" alt=""><?= $acteur["prenom"]." ".$acteur["nom"] ?></td>
+                <td><a href="index.php?action=detailFilm&id=<?= $acteur["Id_film"] ?>"><img src="<?= $acteur["affiche"] ?>" alt=""><?= $acteur["titre"] ?><br><?= $acteur["anneeSortie"] ?></td>   
             </tr>
         <?php } ?>
     </tbody>   
